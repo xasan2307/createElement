@@ -2,7 +2,6 @@ class Shape {
   constructor(options) {
     this.element = document.createElement(options.elementType);
     this.element.style.backgroundColor = options.backgroundColor;
-
     this.wrapper = document.querySelector(`.${options.holder}`);
     this.wrapper.append(this.element);
   }
@@ -33,7 +32,6 @@ class rounded extends Shape {
 
 class triangle extends Shape {
   constructor(options) {
-    // let size = document.querySelector(".inputSize");
     super(options);
     this.element.style.borderTop = options.size + "px solid transparent";
     this.element.style.borderLeft = options.size + "px solid transparent";
@@ -62,7 +60,6 @@ form.addEventListener("submit", (e) => {
       holder: "wrapper",
       size: inputSize.value,
     });
-    console.log("4");
   } else if (options[sel].text === "Triangle") {
     var createElement = new triangle({
       elementType: "div",
@@ -70,7 +67,6 @@ form.addEventListener("submit", (e) => {
       holder: "wrapper",
       size: inputSize.value,
     });
-    console.log("3");
   } else {
     var createElement = new rounded({
       elementType: "div",
@@ -78,7 +74,6 @@ form.addEventListener("submit", (e) => {
       holder: "wrapper",
       size: inputSize.value,
     });
-    console.log("kut");
   }
   createElement.element.addEventListener("click", () => {
     createElement.hide();
