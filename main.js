@@ -23,7 +23,7 @@ class rounded extends Shape {
   constructor(options) {
     super(options);
 
-    this.element.style.border = options.size + "px solid black";
+    this.element.style.border = "1px solid black";
     this.element.style.borderRadius = "50%";
     this.element.style.height = options.size + "px";
     this.element.style.width = options.size + "px";
