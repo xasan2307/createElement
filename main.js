@@ -24,10 +24,25 @@ class rounded extends Shape {
   constructor(options) {
     super(options);
 
-    this.element.style.border = "1px solid black";
+    this.element.style.border = options.size + "px solid black";
     this.element.style.borderRadius = "50%";
     this.element.style.height = options.size + "px";
     this.element.style.width = options.size + "px";
+  }
+}
+
+class triangle extends Shape {
+  constructor(options) {
+    // let size = document.querySelector(".inputSize");
+    super(options);
+    this.element.style.borderTop = options.size + "px solid transparent";
+    this.element.style.borderLeft = options.size + "px solid transparent";
+    this.element.style.borderRight = options.size + "px solid transparent";
+    this.element.style.borderBottom =
+      options.size + `px solid ${inputColor.value}`;
+    this.element.style.height = 0 + "px";
+    this.element.style.width = 0 + "px";
+    this.element.style.display = "inline-block";
   }
 }
 
@@ -47,6 +62,15 @@ form.addEventListener("submit", (e) => {
       holder: "wrapper",
       size: inputSize.value,
     });
+    console.log("4");
+  } else if (options[sel].text === "Triangle") {
+    var createElement = new triangle({
+      elementType: "div",
+      borderColor: inputColor.value,
+      holder: "wrapper",
+      size: inputSize.value,
+    });
+    console.log("3");
   } else {
     var createElement = new rounded({
       elementType: "div",
@@ -54,6 +78,7 @@ form.addEventListener("submit", (e) => {
       holder: "wrapper",
       size: inputSize.value,
     });
+    console.log("kut");
   }
   createElement.element.addEventListener("click", () => {
     createElement.hide();
